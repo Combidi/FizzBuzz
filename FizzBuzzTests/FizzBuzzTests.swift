@@ -11,11 +11,9 @@ import XCTest
 
 enum FizzBuzz {
     static func evaluate(number: Int) -> String {
-        if number.isMultiple(of: 3) && number.isMultiple(of: 5) {
-            return "FizzBuzz"
-        }
-        
-        return number.isMultiple(of: 5) ? "Buzz" : "Fizz"
+        if number.isMultiple(of: 3) && number.isMultiple(of: 5) { return "FizzBuzz" }
+        if number.isMultiple(of: 5) { return "Buzz" }
+        return "Fizz"
     }
 }
 
