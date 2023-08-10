@@ -22,38 +22,27 @@ enum FizzBuzz {
 final class FizzBuzzTests: XCTestCase {
 
     func test_evaluate_deliversFizzOnNumbersDivisibleByThree() {
-
         let samples = [3, 6, 9, 12, 18]
-        
-        for sample in samples {
-            
-            let result = FizzBuzz.evaluate(number: sample)
-            
-            XCTAssertEqual(result, "Fizz", "for sample: \(sample)")
-        }
+        evaluate(numbers: samples, deliversResult: "Fizz")
     }
     
     func test_evaluate_deliversFizzOnNumbersDivisibleByFive() {
-
         let samples = [5, 10, 50, 100]
-        
-        for sample in samples {
-            
-            let result = FizzBuzz.evaluate(number: sample)
-            
-            XCTAssertEqual(result, "Buzz", "for sample: \(sample)")
-        }
+        evaluate(numbers: samples, deliversResult: "Buzz")
     }
     
     func test_evaluate_deliversFizzBuzzOnNumbersDivisibleByBothThreeAndFive() {
-
         let samples = [15, 30, 90]
-        
-        for sample in samples {
+        evaluate(numbers: samples, deliversResult: "FizzBuzz")
+    }
+    
+    // MARK: Helpers
+    
+    private func evaluate(numbers: [Int], deliversResult expectedResult: String, file: StaticString = #filePath, line: UInt = #line) {
+        for number in numbers {
+            let result = FizzBuzz.evaluate(number: number)
             
-            let result = FizzBuzz.evaluate(number: sample)
-            
-            XCTAssertEqual(result, "FizzBuzz", "for sample: \(sample)")
+            XCTAssertEqual(result, expectedResult, "for sample: \(number)", file: file, line: line)
         }
     }
 }
