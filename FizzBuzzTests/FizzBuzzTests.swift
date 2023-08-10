@@ -23,7 +23,7 @@ final class FizzBuzzTests: XCTestCase {
             
             let result = FizzBuzz.evaluate(number: sample)
             
-            XCTAssertEqual(result, "Fizz")
+            XCTAssertEqual(result, "Fizz", "for sample: \(sample)")
         }
     }
 }
