@@ -8,6 +8,8 @@ import XCTest
 // Delivers fizz on any number divisible by 3
 // Delivers buzz on any number divisible by 5
 // Delivers fissbuzz on any number that is divisible by both 3 and 5
+// Delivers number on any number that is not divisible by either 3 or 5
+// Delivers 0 on 0
 
 enum FizzBuzz {
     static func evaluate(number: Int) -> String {
