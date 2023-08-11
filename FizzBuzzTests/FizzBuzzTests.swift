@@ -14,7 +14,8 @@ enum FizzBuzz {
         if number == 0 { return "0" }
         if number.isMultiple(of: 3) && number.isMultiple(of: 5) { return "FizzBuzz" }
         if number.isMultiple(of: 5) { return "Buzz" }
-        return "Fizz"
+        if number.isMultiple(of: 3) { return "Fizz" }
+        return String(number)
     }
 }
 
@@ -39,6 +40,16 @@ final class FizzBuzzTests: XCTestCase {
         let result = FizzBuzz.evaluate(number: 0)
         
         XCTAssertEqual(result, "0")
+    }
+    
+    func test_evaluate_deliversNumberAsStringForNumbersNotDivisibleByEitherThreeOrFive() {
+        let samples = [11, 43, 77]
+        
+        for number in samples {
+            let result = FizzBuzz.evaluate(number: number)
+
+            XCTAssertEqual(result, String(number), "for sample: \(number)")
+        }
     }
     
     // MARK: Helpers
