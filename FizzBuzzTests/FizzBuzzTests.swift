@@ -11,6 +11,7 @@ import XCTest
 
 enum FizzBuzz {
     static func evaluate(number: Int) -> String {
+        if number == 0 { return "0" }
         if number.isMultiple(of: 3) && number.isMultiple(of: 5) { return "FizzBuzz" }
         if number.isMultiple(of: 5) { return "Buzz" }
         return "Fizz"
@@ -32,6 +33,12 @@ final class FizzBuzzTests: XCTestCase {
     func test_evaluate_deliversFizzBuzzOnNumbersDivisibleByBothThreeAndFive() {
         let samples = [15, 30, 90]
         evaluate(numbers: samples, deliversResult: "FizzBuzz")
+    }
+
+    func test_evaluate_deliversZeroOnZero() {
+        let result = FizzBuzz.evaluate(number: 0)
+        
+        XCTAssertEqual(result, "0")
     }
     
     // MARK: Helpers
