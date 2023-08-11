@@ -43,11 +43,9 @@ final class FizzBuzzTests: XCTestCase {
     }
     
     func test_evaluate_deliversNumberAsStringForNumbersNotDivisibleByEitherThreeOrFive() {
-        let samples = [11, 43, 77]
-        
-        for number in samples {
-            assertThatEvaluateDelivers(String(number), forNumber: number)
-        }
+        assertThatEvaluateDelivers("11", forNumber: 11)
+        assertThatEvaluateDelivers("43", forNumber: 43)
+        assertThatEvaluateDelivers("77", forNumber: 77)
     }
     
     // MARK: Helpers
