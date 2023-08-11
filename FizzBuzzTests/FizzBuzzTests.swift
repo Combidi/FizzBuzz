@@ -48,9 +48,7 @@ final class FizzBuzzTests: XCTestCase {
         let samples = [11, 43, 77]
         
         for number in samples {
-            let result = FizzBuzz.evaluate(number: number)
-
-            XCTAssertEqual(result, String(number), "for sample: \(number)")
+            assertEvaluateDelivers(result: String(number), forNumber: number)
         }
     }
     
@@ -58,9 +56,13 @@ final class FizzBuzzTests: XCTestCase {
     
     private func evaluate(numbers: [Int], deliversResult expectedResult: String, file: StaticString = #filePath, line: UInt = #line) {
         for number in numbers {
-            let result = FizzBuzz.evaluate(number: number)
-            
-            XCTAssertEqual(result, expectedResult, "for sample: \(number)", file: file, line: line)
+            assertEvaluateDelivers(result: expectedResult, forNumber: number, file: file, line: line)
         }
+    }
+    
+    private func assertEvaluateDelivers(result expectedResult: String, forNumber number: Int, file: StaticString = #filePath, line: UInt = #line) {
+        let result = FizzBuzz.evaluate(number: number)
+        
+        XCTAssertEqual(result, expectedResult, "for sample: \(number)", file: file, line: line)
     }
 }
