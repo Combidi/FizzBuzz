@@ -25,40 +25,40 @@ final class FizzBuzzTests: XCTestCase {
 
     func test_evaluate_deliversFizzOnNumbersDivisibleByThree() {
         let samples = [3, 6, 9, 12, 18]
-        assertThatEvaluateDelivers(result: "Fizz", forNumbers: samples)
+        assertThatEvaluateDelivers("Fizz", forNumbers: samples)
     }
     
     func test_evaluate_deliversFizzOnNumbersDivisibleByFive() {
         let samples = [5, 10, 50, 100]
-        assertThatEvaluateDelivers(result: "Buzz", forNumbers: samples)
+        assertThatEvaluateDelivers("Buzz", forNumbers: samples)
     }
     
     func test_evaluate_deliversFizzBuzzOnNumbersDivisibleByBothThreeAndFive() {
         let samples = [15, 30, 90]
-        assertThatEvaluateDelivers(result: "FizzBuzz", forNumbers: samples)
+        assertThatEvaluateDelivers("FizzBuzz", forNumbers: samples)
     }
 
     func test_evaluate_deliversZeroOnZero() {
-        assertThatEvaluateDelivers(result: "0", forNumber: 0)
+        assertThatEvaluateDelivers("0", forNumber: 0)
     }
     
     func test_evaluate_deliversNumberAsStringForNumbersNotDivisibleByEitherThreeOrFive() {
         let samples = [11, 43, 77]
         
         for number in samples {
-            assertThatEvaluateDelivers(result: String(number), forNumber: number)
+            assertThatEvaluateDelivers(String(number), forNumber: number)
         }
     }
     
     // MARK: Helpers
     
-    private func assertThatEvaluateDelivers(result expectedResult: String, forNumbers numbers: [Int], file: StaticString = #filePath, line: UInt = #line) {
+    private func assertThatEvaluateDelivers(_ expectedResult: String, forNumbers numbers: [Int], file: StaticString = #filePath, line: UInt = #line) {
         for number in numbers {
-            assertThatEvaluateDelivers(result: expectedResult, forNumber: number, file: file, line: line)
+            assertThatEvaluateDelivers(expectedResult, forNumber: number, file: file, line: line)
         }
     }
     
-    private func assertThatEvaluateDelivers(result expectedResult: String, forNumber number: Int, file: StaticString = #filePath, line: UInt = #line) {
+    private func assertThatEvaluateDelivers(_ expectedResult: String, forNumber number: Int, file: StaticString = #filePath, line: UInt = #line) {
         let result = FizzBuzz.evaluate(number: number)
         
         XCTAssertEqual(result, expectedResult, "for sample: \(number)", file: file, line: line)
